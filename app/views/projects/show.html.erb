@@ -1,0 +1,8 @@
+<div>
+  <%= link_to 'Home', root_path %>
+</div>
+
+<%= form_tag root_path, :method => :post, :remote => true do %>
+  <%= autocomplete_field_tag :name, '', autocomplete_user_name_projects_path, :size => 25 %>
+  <%= button_tag 'submit', :disabled => true %>
+<% end %>

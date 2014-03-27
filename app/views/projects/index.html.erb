@@ -1,9 +1,9 @@
-<h2>Projects</h2>
+<h2>Listing Projects</h2>
 <ul>
   <% @projects.each do |project| %>
     <li>
       <%= project.name %>
-      <%= link_to 'Add collaborators', project_path(:name => project.name) %>
+      <%= link_to 'Add collaborators', project %>
     </li>
   <% end %>
 </ul>

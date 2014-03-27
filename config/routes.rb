@@ -5,7 +5,9 @@ AutocompleteProjectCollaborators::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root :to => 'projects#index'
 
-  get 'projects/:name' => 'projects#show', :as => 'project'
+  resources :projects do
+    get :autocomplete_user_name, :on => :collection
+  end
 
   get 'users/index' => 'users#index', :as => 'users'
 
