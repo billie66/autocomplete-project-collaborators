@@ -5,7 +5,9 @@ AutocompleteProjectCollaborators::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root :to => 'projects#index'
 
-  resources :projects
+  get 'projects/:name' => 'projects#show', :as => 'project'
+
+  get 'users/index' => 'users#index', :as => 'users'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

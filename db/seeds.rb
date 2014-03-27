@@ -9,3 +9,13 @@
 Project.create!( :name => 'haoqicat' )
 Project.create!( :name => 'happycasts' )
 
+User.create!( :name => "billie" )
+User.create!( :name => "billie66" )
+User.create!( :name => "belle1990" )
+User.create!( :name => "beef" )
+User.create!( :name => "peter wang" )
+User.create!( :name => "happypeter" )
+User.create!( :name => "happy1983" )
+User.create!( :name => "luckycat" )
+User.create!( :name => "julie" )
+User.create!( :name => "julie1990" )

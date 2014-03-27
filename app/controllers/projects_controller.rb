@@ -4,6 +4,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find_by_id(params[:id])
+    @project = Project.find_by_name(params[:name])
   end
 end
