@@ -1,4 +1,4 @@
-class Collaboratings < ActiveRecord::Base
+class Collaborating < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
 end

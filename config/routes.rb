@@ -9,6 +9,9 @@ AutocompleteProjectCollaborators::Application.routes.draw do
     get :autocomplete_user_name, :on => :collection
   end
 
+  post 'projects/:id/add_collaborator' => 'projects#add_collaborator', :as => 'add_collaborator'
+  post 'projects/:id/delete_collaborator' => 'projects#delete_collaborator', :as => 'delete_collaborator'
+
   get 'users/index' => 'users#index', :as => 'users'
 
   # Example of regular route:

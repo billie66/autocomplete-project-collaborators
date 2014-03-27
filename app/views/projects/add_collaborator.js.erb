@@ -1,0 +1,7 @@
+<% if @collaborator.present? %>
+  <% if @token %>
+    $('.collab-error').html("User <%= @collaborator.name %> is already a collaborator!")
+  <% else %>
+    $('.collabs').append("<%= j render 'collaborator', :user => @collaborator %>")
+  <% end %>
+<% end %>
