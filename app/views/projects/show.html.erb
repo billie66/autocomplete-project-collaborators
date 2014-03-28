@@ -1,33 +1,36 @@
-<div>
-  <%= link_to 'Home', root_path %>
-</div>
+<div class="container">
+  <div class="nav">
+    <span>Collaborators</span>
+    <%= link_to 'Home', root_path %>
+  </div>
 
-<ul class="collabs">
-  <% if @collaborators.present? %>
-    <% @collaborators.each do |user| %>
-      <li class="uid-<%= user.id %>">
-        <span><%= user.name %></span>
-        <%= link_to 'Delete', delete_collaborator_path(:collab => user.name), :method => :post,
-        :remote => true, :class => "delete-collab-button" %>
-      </li>
+  <ul class="collabs wrapper">
+    <% if @collaborators.present? %>
+      <% @collaborators.each do |user| %>
+        <li class="uid-<%= user.id %>">
+          <span><%= user.name %></span>
+          <%= link_to 'Delete', delete_collaborator_path(:collab => user.name), :method => :post,
+          :remote => true, :class => "btn btn-danger right" %>
+        </li>
+      <% end %>
     <% end %>
+  </ul>
+
+  <%= form_tag add_collaborator_path, :method => :post, :remote => true do %>
+    <%= autocomplete_field_tag :collab, '', autocomplete_user_name_projects_path, :size => 25 %>
+    <%= button_tag 'Add collaborator', :disabled => true, :class => 'btn btn-success btn-collab' %>
   <% end %>
-</ul>
 
-<%= form_tag add_collaborator_path, :method => :post, :remote => true do %>
-  <%= autocomplete_field_tag :collab, '', autocomplete_user_name_projects_path, :size => 25 %>
-  <%= button_tag 'submit', :disabled => true, :class => 'collab-button' %>
-<% end %>
+  <div class="collab-error"></div>
 
-<div class="collab-error"></div>
-
-<% content_for :template_js do %>
-  <script>
-    $('#collab').bind('input', function() {
-      $('.collab-button').attr("disabled", true);
-    });
-    $('#collab').bind('railsAutocomplete.select', function(){
-      $('.collab-button').attr("disabled", false);
-    });
-  </script>
-<% end %>
+  <% content_for :template_js do %>
+    <script>
+      $('#collab').bind('input', function() {
+        $('.btn-collab').attr("disabled", true);
+      });
+      $('#collab').bind('railsAutocomplete.select', function(){
+        $('.btn-collab').attr("disabled", false);
+      });
+    </script>
+  <% end %>
+</div>

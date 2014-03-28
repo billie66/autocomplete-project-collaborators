@@ -1,5 +1,5 @@
 <li class="uid-<%= user.id %>">
   <span><%= user.name %></span>
   <%= link_to 'Delete', delete_collaborator_path(:collab => user.name), :method => :post,
-  :remote => true, :class => "delete-collab-button" %>
+  :remote => true, :class => "btn btn-danger right" %>
 </li>
